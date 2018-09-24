@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function(spUtil) {	
+	var c = this;		
+	
+	spUtil.addInfoMessage("Cloning hello world widget");
+	
+  c.display = function() {		
+		c.data.message = (c.data.sometext) ? 'Hello ' + c.data.sometext + '!' : '';
+		for(var property in c.data){
+			console.log('c.data.' + property + ": " + c.data[property]);
+		}
+	}
+	
+	c.display();
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>h1 {
+color: #482bca;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data>{
+	"data": {
+		"sometext": "world"
+	}
+}</demo_data>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>clone2_hello_world_1</id>
+        <internal>false</internal>
+        <link/>
+        <name>clone2_hello_world_1</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+	
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-09-24 12:31:06</sys_created_on>
+        <sys_id>2a0cecbcdbb827000c4a5411cf961980</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>clone2_hello_world_1</sys_name>
+        <sys_package display_value="CreateNotes" source="x_snc_createnotes">df5fd9a5090232007f44e1046c8ff69f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CreateNotes">df5fd9a5090232007f44e1046c8ff69f</sys_scope>
+        <sys_update_name>sp_widget_2a0cecbcdbb827000c4a5411cf961980</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-09-24 12:32:46</sys_updated_on>
+        <template><![CDATA[<div>
+ Enter your name:
+ <input type="text" ng-model="c.data.sometext" ng-change="c.display()"/>
+ <h1>{{ c.data.message }}</h1>
+</div>]]></template>
+    </sp_widget>
+</record_update>
